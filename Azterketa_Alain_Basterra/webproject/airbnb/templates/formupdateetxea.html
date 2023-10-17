@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %}Etxea eguneratu{% endblock %}
+{% block content %}
+<p>(Errorea ematen du, baina egiten du eguneraketa)</p>
+<form action="/formupdateetxea/updateetxea/" method="POST" autocomplete="off">
+    {% csrf_token %}
+    <h3>Etxearen ezaugarriak:</h3>
+    <div class="se-25">
+        <label for="izena">Izena:</label>
+        <input type="text" name="izena" id="izena" value="{{ etxea.izena }}" required>
+    </div>
+    <div class="se-25">
+        <label for="herria">Herria:</label>
+        <input type="text" name="herria" id="herria" value="{{ etxea.herria }}" required>
+    </div>
+    <div class="se-25">
+        <label for="p_kop">Pertsona kopurua:</label>
+        <input type="number" name="p_kop" id="p_kop" max="99" min="1" value="{{ etxea.pertsona_kopurua }}" required>
+    </div>
+    <div class="se-25">
+        <label for="hasi_data">Alokairu hasi data:</label>
+        <input type="date" name="hasi_data" id="hasi_data" value="{{ etxea.alokatu_hasi }}" required>
+    </div>
+    <div class="se-25">
+        <label for="bukatu_data">Alokairu bukatu data:</label>
+        <input type="date" name="bukatu_data" id="bukatu_data" value="{{ etxea.alokatu_bukatu }}" required>
+    </div>
+    <div class="se-25">
+        <label for="egoera">Egoera:</label>
+        <input type="text" name="egoera" id="egoera" value="{{ etxea.egoera }}" required>
+    </div>
+
+    <div class="se-25">
+        <label for="pertsona">Pertsona:</label>
+        <select id="pertsona" name="pertsona_id" required>
+            {% for pertsona in pertsonak %}
+            <option {% if etxea.pertsona.id in pertsona.id %} selected {% endif %} value="{{ pertsona.id }}">{{ pertsona.izena }}</option>
+            {% endfor %}
+        </select>
+    </div>
+  <input type="hidden" name="id" value="{{ etxea.id }}">
+    <div class="se-25">
+        <button type="submit" class="btn-custom">Etxea eguneratu</button>
+    </div>
+</form>
+{% endblock content %}

@@ -1,0 +1,86 @@
+body {
+    font-family: "Helvetica Neue", sans-serif;
+}
+
+/* Estilo para el contenedor */
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/*Separador*/
+.se-25{
+    margin-top: 25px;
+}
+
+/* Estilo para la tabla */
+.table-custom {
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid #ddd;
+    background-color: #f9f9f9;
+}
+
+.table-custom th, .table-custom td {
+    border: 2px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.table-custom th {
+    background-color: #333;
+    color: white;
+}
+
+/* Estilo para las columnas específicas */
+.col-1 {
+    width: 100px;
+}
+
+.col-2 {
+    width: 200px;
+}
+
+.col-3 {
+    width: 300px;
+}
+
+.col-4 {
+    width: 400px;
+}
+
+.col-5 {
+    width: 500px;
+}
+
+
+/* Estilo para los botones */
+.btn-custom {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: blue;
+    color: white;
+    text-decoration: none;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.btn-secondary-custom {
+    background-color: red;
+    color: white;
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.btn-edit-custom {
+    background-color: grey;
+    color: white;
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    margin-right: 10px;
+    border-radius: 5px;
+}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Pertsona eguneratu{% endblock %}
+{% block content %}
+<form action="/formupdatepertsona/updatepertsona/" method="POST" autocomplete="off">
+    {% csrf_token %}
+    <h3>Pertsonaren ezaugarriak:</h3>
+    <div class="se-25">
+        <label for="izena">Izena:</label>
+        <input type="text" name="izena" id="izena"  value="{{ pertsona.izena }}" required>
+    </div>
+    <div class="se-25">
+        <label for="emaila">Emaila:</label>
+        <input type="text" name="emaila" id="emaila"  value="{{ pertsona.emaila }}" required>
+    </div>
+    <div class="se-25">
+        <label for="nan">NAN-a:</label>
+        <input type="text" name="nan" id="nan" maxlength="9"  value="{{ pertsona.nan }}" required>
+    </div>
+    <input type="hidden" name="id" value="{{ pertsona.id }}">
+    <div class="se-25">
+        <button type="submit" class="btn-custom">Pertsona eguneratu</button>
+    </div>
+</form>
+{% endblock content %}

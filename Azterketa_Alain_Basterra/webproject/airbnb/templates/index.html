@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %}Airbnb hasiera{% endblock %}
+{% block content %}
+<div class="container">
+    <h2>Alokatze datuak</h2>
+    <table class="table-custom">
+        <thead>
+        <tr>
+            <th class="col-1">ID</th>
+            <th class="col-2">Etxearen izena</th>
+            <th class="col-2">Herria</th>
+            <th class="col-1">Pertsona kopurua</th>
+            <th class="col-1">Alokairu hasi data</th>
+            <th class="col-1">Alokairu bukatu data</th>
+            <th class="col-1">Egoera</th>
+            <th class="col-2">Alokatu duen pertsonaren izena</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for etxea in etxeak %}
+        <tr>
+
+            <td class="col-1">{{ etxea.id }}</td>
+            <td class="col-2">{{ etxea.izena }}</td>
+            <td class="col-2">{{ etxea.herria }}</td>
+            <td class="col-1">{{ etxea.pertsona_kopurua }}</td>
+            <td class="col-1">{{ etxea.alokatu_hasi }}</td>
+            <td class="col-1">{{ etxea.alokatu_bukatu }}</td>
+            <td class="col-1">{{ etxea.egoera }}</td>
+            <td class="col-2">{{ etxea.pertsona.izena }}</td>
+        </tr>
+        {% empty %}
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="se-25"></div>
+    <div class="row">
+        <div class="col-6">
+            <a href="/etxeak" class="btn-custom">Etxeak kudeatu</a>
+            <a href="/pertsonak" class="btn-secondary-custom">Pertsonak kudeatu</a>
+        </div>
+        <div class="col-6">
+        </div>
+    </div>
+</div>
+{% endblock content %}

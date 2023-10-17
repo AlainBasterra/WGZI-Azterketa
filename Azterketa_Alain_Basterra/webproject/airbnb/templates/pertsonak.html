@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}Airbnb pertsonak{% endblock %}
+{% block content %}
+<div class="container">
+        <h2>Pertsonak</h2>
+    <table class="table-custom">
+        <thead>
+        <tr>
+            <th class="col-1">ID</th>
+            <th class="col-2">Izena</th>
+            <th class="col-2">Emaila</th>
+            <th class="col-1">NAN-a</th>
+            <th class="col-1">Erregistratutako data</th>
+            <th class="col-1">Aldatu</th>
+            <th class="col-1">Ezabatu</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for pertsona in pertsonak %}
+        <tr>
+            <td class="col-1">{{ pertsona.id }}</td>
+            <td class="col-2">{{ pertsona.izena }}</td>
+            <td class="col-2">{{ pertsona.emaila }}</td>
+            <td class="col-1">{{ pertsona.nan }}</td>
+            <td class="col-1">{{ pertsona.sortu_data }}</td>
+            <td class="col-1"><a href="formupdatepertsona/{{ pertsona.id }}" class="btn-edit-custom">Aldatu</a></td>
+            <td class="col-1"><a href="deletepertsona/{{ pertsona.id }}" class="btn-secondary-custom">Ezabatu</a></td>
+        </tr>
+        {% empty %}
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="se-25"></div>
+    <div class="row">
+        <div class="col-6">
+            <a href="/" class="btn-custom">Alokairuak ikusi</a>
+            <a href="/formaddpertsona" style="float:right" class="btn-custom">Pertsona bat gehitu</a>
+        </div>
+        <div class="col-6">
+        </div>
+    </div>
+</div>
+{% endblock content %}

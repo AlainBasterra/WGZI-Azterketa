@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}Pertsona gehitu{% endblock %}
+{% block content %}
+<form action="/formaddpertsona/addpertsona/" method="POST" autocomplete="off">
+    {% csrf_token %}
+    <h3>Pertsonaren ezaugarriak:</h3>
+    <div class="se-25">
+        <label for="izena">Izena:</label>
+        <input type="text" name="izena" id="izena" required>
+    </div>
+    <div class="se-25">
+        <label for="emaila">Emaila:</label>
+        <input type="text" name="emaila" id="emaila" required>
+    </div>
+    <div class="se-25">
+        <label for="nan">NAN-a:</label>
+        <input type="text" name="nan" id="nan" maxlength="9" required>
+    </div>
+    <div class="se-25">
+        <button type="submit" class="btn-custom">Pertsona sortu</button>
+    </div>
+</form>
+{% endblock content %}
